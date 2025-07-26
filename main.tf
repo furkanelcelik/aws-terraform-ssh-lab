@@ -12,7 +12,7 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# Find the latest Amazon Linux 2 AMI
+
 data "aws_ami" "amazon_linux_2" {
   most_recent = true
   owners      = ["amazon"]
@@ -22,7 +22,7 @@ data "aws_ami" "amazon_linux_2" {
   }
 }
 
-# Find the pre-existing VPC
+
 data "aws_vpc" "existing" {
   filter {
     name   = "tag:Name"
@@ -30,7 +30,7 @@ data "aws_vpc" "existing" {
   }
 }
 
-# Find the pre-existing Security Group
+
 data "aws_security_group" "existing" {
   filter {
     name   = "group-name"
@@ -39,6 +39,11 @@ data "aws_security_group" "existing" {
 }
 
 data "aws_subnet" "existing" {
-  vpc_id            = data.aws_vpc.existing.id
-  availability_zone = "us-east-1a" 
+  vpc_id = data.aws_vpc.existing.id
+
+  filter {
+    name   = "cidr-block"
+    values = ["10.0.1.0/24"]
+  }
 }
+
