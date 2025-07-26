@@ -24,3 +24,18 @@ variable "common_tags" {
     ID      = "cmtr-s5mse3rq"
   }
 }
+
+variable "existing_vpc_name" {
+  description = "The name tag of the existing VPC to use."
+  type        = string
+}
+
+variable "existing_sg_name" {
+  description = "The name of the existing security group to use."
+  type        = string
+}
+
+variable "existing_subnet_cidr" {
+  description = "The CIDR block of the existing subnet to use."
+  type        = string
+}

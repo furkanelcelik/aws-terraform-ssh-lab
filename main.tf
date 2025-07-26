@@ -16,7 +16,7 @@ data "aws_ami" "amazon_linux_2" {
 data "aws_vpc" "existing" {
   filter {
     name   = "tag:Name"
-    values = ["cmtr-s5mse3rq-vpc"]
+    values = [var.existing_vpc_name]
   }
 }
 
@@ -24,16 +24,16 @@ data "aws_vpc" "existing" {
 data "aws_security_group" "existing" {
   filter {
     name   = "group-name"
-    values = ["cmtr-s5mse3rq-sg"]
+    values = [var.existing_sg_name]
   }
 }
+
 
 data "aws_subnet" "existing" {
   vpc_id = data.aws_vpc.existing.id
 
   filter {
     name   = "cidr-block"
-    values = ["10.0.1.0/24"]
+    values = [var.existing_subnet_cidr]
   }
 }
-
