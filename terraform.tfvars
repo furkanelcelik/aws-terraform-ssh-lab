@@ -3,3 +3,7 @@ instance_name        = "cmtr-s5mse3rq-ec2"
 existing_vpc_name    = "cmtr-s5mse3rq-vpc"
 existing_sg_name     = "cmtr-s5mse3rq-sg"
 existing_subnet_cidr = "10.0.1.0/24"
+common_tags = {
+  Project = "epam-tf-lab"
+  ID      = "cmtr-s5mse3rq"
+}
