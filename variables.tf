@@ -1,19 +1,19 @@
 variable "ssh_key" {
   description = "Provides custom public SSH key."
   type        = string
-  sensitive   = true # Marks the key as sensitive to hide it from logs
+  sensitive   = true 
 }
 
 variable "key_name" {
   description = "The name for the AWS key pair."
   type        = string
-  default     = "cmtr-s5mse3rq-keypair"
+  
 }
 
 variable "instance_name" {
   description = "The name for the EC2 instance."
   type        = string
-  default     = "cmtr-s5mse3rq-ec2"
+  
 }
 
 variable "common_tags" {
