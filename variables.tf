@@ -1,3 +1,8 @@
+variable "aws_region" {
+  description = "The AWS region for resources."
+  type        = string
+}
+
 variable "ssh_key" {
   description = "Provides custom public SSH key."
   type        = string
@@ -14,10 +19,14 @@ variable "instance_name" {
   type        = string
 }
 
+variable "instance_type" {
+  description = "The instance type for the EC2 instance."
+  type        = string
+}
+
 variable "common_tags" {
   description = "Common tags to apply to all resources."
   type        = map(string)
-
 }
 
 variable "existing_vpc_name" {
@@ -31,6 +40,6 @@ variable "existing_sg_name" {
 }
 
 variable "existing_subnet_cidr" {
-  description = "The CIDR block of the existing subnet to use."
+  description = "The CIDR block of the existing public subnet to use."
   type        = string
 }

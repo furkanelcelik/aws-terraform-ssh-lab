@@ -1,6 +1,6 @@
 resource "aws_instance" "main" {
   ami           = data.aws_ami.amazon_linux_2.id
-  instance_type = "t2.micro"
+  instance_type = var.instance_type
   key_name      = aws_key_pair.main.key_name
   subnet_id     = data.aws_subnet.existing.id
 
